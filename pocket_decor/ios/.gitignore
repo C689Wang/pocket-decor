@@ -32,3 +32,12 @@ Runner/GeneratedPluginRegistrant.*
 !default.mode2v3
 !default.pbxuser
 !default.perspectivev3
+
+# Additional ignores
+build/
+*.xcuserstate
+*.xcarchive
+
+# firebase
+Runner/GoogleService-Info.plist
+Runner/Info.plist
