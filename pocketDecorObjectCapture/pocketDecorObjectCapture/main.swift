@@ -27,8 +27,8 @@ struct ObjectCaptureApp: ParsableCommand {
     @Argument(help: "The local input file folder of images.")
     private var inputFolder: String
     
-    @Argument(help: "Full path to the USDZ output file.")
-    private var outputFilename: String
+    @Argument(help: "Full path to the OBJ output folder.")
+    private var outputFolder: String
     
     @Option(name: .shortAndLong,
             parsing: .next,
@@ -142,7 +142,7 @@ struct ObjectCaptureApp: ParsableCommand {
 
     /// Creates a request to use based on the command-line arguments.
     private func makeRequestFromArguments() -> PhotogrammetrySession.Request {
-        let outputUrl = URL(fileURLWithPath: outputFilename)
+        let outputUrl = URL(fileURLWithPath: outputFolder, isDirectory: true)
         if let detailSetting = detail {
             return PhotogrammetrySession.Request.modelFile(url: outputUrl, detail: detailSetting)
         } else {
